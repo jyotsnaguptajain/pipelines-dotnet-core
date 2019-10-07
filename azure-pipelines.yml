@@ -33,15 +33,6 @@ steps:
   inputs:
     pathtoPublish: '$(Build.ArtifactStagingDirectory)' 
     artifactName: 'myWebsiteName'
-
-- script: dotnet pack /p:PackageVersion=$(version)  # define version variable elsewhere in your pipeline
-- task: NuGetCommand@2
-  inputs:
-    command: push
-    nuGetFeedType: external
-    publishFeedCredentials: '<Name of the NuGet service connection>'
-    versioningScheme: byEnvVar
-    versionEnvVar: version
   
 - task: DotNetCoreCLI@2
   inputs:
